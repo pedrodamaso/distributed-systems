@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3.13-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"    # AMQP (protocolo de mensagens)
+      - "15672:15672"  # Painel de administração web
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin123
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+volumes:
+  rabbitmq_data:
+    # Volume nomeado garante persistência de filas e mensagens entre restarts
