@@ -2,8 +2,6 @@
 
 **Disciplina:** Sistemas Distribuídos  
 **Referência:** Coulouris et al., *Sistemas Distribuídos*, Cap. 9  
-**Obs.:** O gabarito está disponível em `gabarito.md` (arquivo separado).
-
 ---
 
 ## Nível Básico — Conceitual e de Reconhecimento
